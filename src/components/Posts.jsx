@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Loader from './Loader';
+import '../styles/Posts.css';
 
 const Posts = () => {
   const [posts, setPosts] = useState();
@@ -17,15 +18,23 @@ const Posts = () => {
 
   return (
     <div className="posts">
-      { loading ?
+      <h2>All posts</h2>
+      <div className="posts-container">
+        { loading ?
         <Loader /> :
           posts.map((post) =>
             <div className="post-container" key={post._id}>
-              <div className="title">{post.title}</div>
-              <div className="text">{post.text}</div>
-              <div className="details">{post.date.toString()}</div>
+              <a href={'/posts/' + post._id}>
+                <div className="title">{post.title}</div>
+                <div className="text">{post.text}</div>
+                <div className="details">
+                  <span>{post.date}</span>
+                  <span>{post.author.username}</span>
+                </div>
+              </a>
             </div>)
-      }
+        }
+      </div>
     </div>
   );
 };

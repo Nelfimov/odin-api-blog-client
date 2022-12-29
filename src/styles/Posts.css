@@ -1,0 +1,29 @@
+.posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.posts h2 {
+  text-align: center;
+}
+
+.posts a {
+  color: inherit;
+  text-decoration: 0;
+}
+
+.posts a:visited {
+  color: inherit;
+  text-decoration: 0;
+}
+
+.post-container {
+  margin: .5rem;
+  padding: .5rem;
+  border: 1px solid grey;
+}
+
+.post-container .details {
+  display: flex;
+  justify-content: space-between;
+}

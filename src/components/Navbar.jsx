@@ -6,7 +6,7 @@ import '../styles/Navbar.css';
 const Navbar = ({loggedIn}) => {
   return (
     <header>
-      <span>LOGO</span>
+      <span>Blog Client</span>
       <div className="nav-links">
         <NavLink to='/'>Home</NavLink>
         {loggedIn === false ?
