@@ -1,0 +1,24 @@
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+form h2 {
+  text-align: center;
+  margin: 0;
+}
+
+form label {
+  text-align: center;
+}
+
+form label:first-of-type {
+  margin-top: 1.5rem;
+}
+
+form input {
+  margin-bottom: 1.5rem;
+  padding: .4rem .5rem;
+}

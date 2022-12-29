@@ -1,8 +1,10 @@
 import React from 'react';
+import '../styles/Forms.css';
 
 const Register = () => {
   return (
     <form>
+      <h2>Register form</h2>
       <label htmlFor="username">Username</label>
       <input type="text" name="username" id="username" />
 
