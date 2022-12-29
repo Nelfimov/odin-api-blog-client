@@ -1,8 +1,9 @@
 import React, {useRef} from 'react';
 import useNotification from './Notification/useNotification';
+import propTypes from 'prop-types';
 import '../styles/Forms.css';
 
-const Login = () => {
+const Login = ({setLoggedIn}) => {
   const usernameInput = useRef();
   const passwordInput = useRef();
   const feedback = useRef();
@@ -32,6 +33,7 @@ const Login = () => {
       console.log(data);
       notification.open(data.message);
       localStorage.setItem('token', JSON.stringify(data.token));
+      setLoggedIn(true);
     } catch (e) {
       console.log(e);
     }
@@ -62,6 +64,10 @@ const Login = () => {
       <div className="feedback" ref={feedback}></div>
     </form>
   );
+};
+
+Login.propTypes = {
+  setLoggedIn: propTypes.func,
 };
 
 export default Login;

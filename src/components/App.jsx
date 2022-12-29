@@ -25,11 +25,11 @@ const App = () => {
 
   return (
     <HashRouter>
-      <Navbar loggedIn={loggedIn}/>
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <main>
         <Routes>
           <Route path='/' element={<Posts />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login setLoggedIn={setLoggedIn} />} />
           <Route path='/register' element={<Register />} />
         </Routes>
       </main>
