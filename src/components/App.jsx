@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react';
+import {HashRouter, Route, Routes} from 'react-router-dom';
 import Navbar from './Navbar';
+import Login from './Login';
+import Posts from './Posts';
 import '../styles/App.css';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    hasJWT();
+  });
 
   /**
    * Check if JWT is present in cookies
@@ -15,18 +22,16 @@ const App = () => {
       setLoggedIn(false);
   }
 
-  useEffect(() => {
-    hasJWT();
-    console.log(loggedIn);
-  });
-
   return (
-    <>
+    <HashRouter>
       <Navbar loggedIn={loggedIn}/>
       <main>
-
+        <Routes>
+          <Route path='/' element={<Posts />} />
+          <Route path='/login' element={<Login />} />
+        </Routes>
       </main>
-    </>
+    </HashRouter>
   );
 };
 
