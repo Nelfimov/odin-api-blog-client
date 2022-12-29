@@ -31,3 +31,7 @@ header a {
 header a:visited {
   color: white;
 }
+
+header a.active {
+  background-color: rgba(51, 51, 51, 0.5);
+}

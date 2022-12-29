@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Login from './Login';
 import Posts from './Posts';
 import '../styles/App.css';
+import Register from './Register';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,6 +30,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Posts />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </main>
     </HashRouter>
