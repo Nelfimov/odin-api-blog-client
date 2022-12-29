@@ -13,3 +13,7 @@ footer {
   max-width: 70rem;
   margin-inline: auto;
 }
+
+button:hover {
+  cursor: pointer;
+}
