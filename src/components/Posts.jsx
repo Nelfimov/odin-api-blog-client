@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Loader from './Loader';
 import '../styles/Posts.css';
+import {NavLink} from 'react-router-dom';
 
 const Posts = () => {
   const [posts, setPosts] = useState();
@@ -24,14 +25,14 @@ const Posts = () => {
         <Loader /> :
           posts.map((post) =>
             <div className="post-container" key={post._id}>
-              <a href={'/posts/' + post._id}>
+              <NavLink to={`/posts/${post._id}/`}>
                 <div className="title">{post.title}</div>
                 <div className="text">{post.text}</div>
                 <div className="details">
                   <span>{post.date}</span>
                   <span>{post.author.username}</span>
                 </div>
-              </a>
+              </NavLink>
             </div>)
         }
       </div>

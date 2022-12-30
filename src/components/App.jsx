@@ -5,6 +5,7 @@ import Login from './Login';
 import Posts from './Posts';
 import '../styles/App.css';
 import Register from './Register';
+import SinglePost from './SinglePost';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -39,6 +40,10 @@ const App = () => {
           <Route
             path='/register'
             element={<Register setLoggedIn={setLoggedIn}/>}
+          />
+          <Route
+            path='/posts/:postID'
+            element={<SinglePost />}
           />
         </Routes>
       </main>
