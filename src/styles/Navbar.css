@@ -8,6 +8,8 @@ header {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  border-radius: 0 0 15px 15px;
+  padding: 0 15px;
 }
 
 header span {
@@ -30,6 +32,14 @@ header a {
 
 header a:visited {
   color: white;
+}
+
+header button {
+  padding: 1rem;
+  color: white;
+  font-size: inherit;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 header a.active {

@@ -28,9 +28,18 @@ const App = () => {
       <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
       <main>
         <Routes>
-          <Route path='/' element={<Posts />} />
-          <Route path='/login' element={<Login setLoggedIn={setLoggedIn} />} />
-          <Route path='/register' element={<Register />} />
+          <Route
+            path='/'
+            element={<Posts />}
+          />
+          <Route
+            path='/login'
+            element={<Login setLoggedIn={setLoggedIn} />}
+          />
+          <Route
+            path='/register'
+            element={<Register setLoggedIn={setLoggedIn}/>}
+          />
         </Routes>
       </main>
     </HashRouter>

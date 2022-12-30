@@ -2,12 +2,14 @@ import React, {useRef} from 'react';
 import useNotification from './Notification/useNotification';
 import propTypes from 'prop-types';
 import '../styles/Forms.css';
+import {useNavigate} from 'react-router-dom';
 
 const Login = ({setLoggedIn}) => {
   const usernameInput = useRef();
   const passwordInput = useRef();
   const feedback = useRef();
   const notification = useNotification();
+  const navigate = useNavigate();
 
   /**
    * Handle submission - send POST request to API to receive.
@@ -30,10 +32,10 @@ const Login = ({setLoggedIn}) => {
 
       const data = await response.json();
 
-      console.log(data);
       notification.open(data.message);
       localStorage.setItem('token', JSON.stringify(data.token));
       setLoggedIn(true);
+      navigate('/');
     } catch (e) {
       console.log(e);
     }
@@ -67,7 +69,7 @@ const Login = ({setLoggedIn}) => {
 };
 
 Login.propTypes = {
-  setLoggedIn: propTypes.func,
+  setLoggedIn: propTypes.func.isRequired,
 };
 
 export default Login;
