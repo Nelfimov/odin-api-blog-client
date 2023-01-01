@@ -1,10 +1,11 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {useParams} from 'react-router-dom';
 import Loader from './Loader';
+import propTypes from 'prop-types';
 import useNotification from './Notification/useNotification';
 import '../styles/SinglePost.css';
 
-const SinglePost = () => {
+const SinglePost = ({loggedIn}) => {
   const {postID} = useParams();
   const [post, setPost] = useState();
   const [comments, setComments] = useState([]);
@@ -38,8 +39,8 @@ const SinglePost = () => {
     );
     const data = await response.json();
     data.sort((a, b) => {
-      if (a.date > b.date) return -1;
-      if (b.date > a.date) return 1;
+      if (new Date(a.date) > new Date(b.date)) return -1;
+      if (new Date(b.date) > new Date(a.date)) return 1;
       return 0;
     });
     setComments(data);
@@ -89,6 +90,7 @@ const SinglePost = () => {
         }
       </div>
 
+      { loggedIn &&
       <form onSubmit={createComment}>
         <textarea
           name="comment"
@@ -99,6 +101,7 @@ const SinglePost = () => {
         </textarea>
         <button>Submit</button>
       </form>
+      }
 
       <div className="comments">
         {
@@ -118,6 +121,10 @@ const SinglePost = () => {
 
     </div>
   );
+};
+
+SinglePost.propTypes = {
+  loggedIn: propTypes.bool.isRequired,
 };
 
 export default SinglePost;

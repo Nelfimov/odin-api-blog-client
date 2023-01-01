@@ -3,9 +3,9 @@ import {HashRouter, Route, Routes} from 'react-router-dom';
 import Navbar from './Navbar';
 import Login from './Login';
 import Posts from './Posts';
-import '../styles/App.css';
 import Register from './Register';
 import SinglePost from './SinglePost';
+import '../styles/App.css';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -43,7 +43,7 @@ const App = () => {
           />
           <Route
             path='/posts/:postID'
-            element={<SinglePost />}
+            element={<SinglePost loggedIn={loggedIn}/>}
           />
         </Routes>
       </main>
